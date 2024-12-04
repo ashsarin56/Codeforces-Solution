@@ -1,0 +1,56 @@
+// Author Arin_Shukla 
+//Problem 1632 B( Roof Construction)
+// from->Codeforces Round 769 (Div. 2)
+// <3------------------------------------------------@56philic------------------------------------------------>
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define cin(v) for(int i=0;i<v.size();i++)cin>>v[i];
+#define cout(v) for(int i=0;i<v.size();i++)cout<<v[i]<<" ";
+#define all(v) v.begin(),v.end()
+#define qsort(v) sort(v.begin(),v.end())
+#define fasterr (ios_base::sync_with_stdio(false),cin.tie(NULL));
+#define lb lower_bound
+#define ub upper_bound
+#define ff first
+#define ss second
+#define flush cout<<flush
+#define gcd __gcd
+#define pb push_back
+#define lcm(a,b) ((a/(__gcd(a,b)))*b)
+const int MOD=1e9+7;
+/*Shree Radhe*/
+/*
+we can notice that the cost should be in powers of 2 hence we first of all we will calculate k where k will
+be the value such that 2^k(2 to the power k) is  highest power of two less then or equal to n  
+now we can report the answer by first printing 2k−1, 2k−2, …,0 
+then printing 2k,2k+1,…,n−1. 
+so the final ouput for ea test case looks like
+2k−1, 2k−2, …,0,2k,2k+1,…,n−1. 
+*/
+int binpow(int a,int b){
+    int res=1;
+    while(b){
+        if(b&1){
+            res*=a;
+        }a*=a;
+        b>>=1;
+    }
+    return res;
+}
+signed main(){
+    /**/
+    fasterr
+    int tc;cin>>tc;
+    while(tc--){
+     int n;cin>>n;int t=n;int k=0;
+     deque<int>d;
+     while(binpow(2,k+1)<=n-1){
+        k++;
+     }
+    //  cout<<k<<endl;
+     for(int i=binpow(2,k)-1;i>=0;i--)cout<<i<<" ";
+     for(int i=binpow(2,k);i<n;i++)cout<<i<<" ";cout<<endl;
+    }
+}
+ 
